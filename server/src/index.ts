@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import morgan from 'morgan';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -19,20 +19,20 @@ const CLIENT_BUILD_PATH = path.join(__dirname, '../../client/build');
 if (process.env.NODE_ENV === 'production')
   app.use(express.static(CLIENT_BUILD_PATH));
 
-app.get('/', (req, res) => {
-  if (process.env.NODE_ENV === 'production') {
-    res.sendFile(path.join(CLIENT_BUILD_PATH, 'index.html'));
-  } else {
-    res.status(200).send('API gateway in development');
-  }
-});
-
-app.get('/rnd', (req, res) => {
+app.get('/api/rnd', (req, res) => {
   const rnd = Math.ceil(Math.random() * 10);
   res.status(200).send({
     http_status: 200,
     data: rnd,
   });
+});
+
+app.get('*', (req, res) => {
+  if (process.env.NODE_ENV === 'production') {
+    res.sendFile(path.join(CLIENT_BUILD_PATH, 'index.html'));
+  } else {
+    res.status(200).send('API gateway in development');
+  }
 });
 
 app.listen(PORT, () =>

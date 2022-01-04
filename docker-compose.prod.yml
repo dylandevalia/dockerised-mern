@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  web:
+  myapp: # Rename me
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,8 +14,12 @@ services:
       - mongo
     networks:
       - app-network
+
   mongo:
     image: mongo
+    # environment:  // If Mongo Authorization is need to be enabled
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: rootpassword
     volumes:
       - data-volume:/data/db
     ports:

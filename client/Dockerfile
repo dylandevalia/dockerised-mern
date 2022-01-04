@@ -1,19 +1,35 @@
 # Dockerfile for client
 
-# Stage 1: Build react client
+# Install alpine node
+# See [https://derickbailey.com/2017/03/09/selecting-a-node-js-image-for-docker/] for more information
 FROM node:17.3.0-alpine3.12
 
-# Working directory be app
+# Create working directory
+RUN mkdir -p /usr/app
 WORKDIR /usr/app
 
-COPY package*.json ./
+# Copy packages
+COPY package.json .
+COPY yarn.lock .
+
+# Install python into temporary directory
+# TODO: Figure out what needs this - build time is incredibly slow for some reason
+RUN apk add --update --no-cache --virtual .gyp \
+    python3 \
+    make \
+    g++
 
 # Install dependencies
-RUN npm install
+RUN yarn
 
-# copy local files to app folder
+# Delete temporary directory with python installation
+RUN apk del .gyp
+
+# Copy local files
 COPY . .
 
+# Expose port
 EXPOSE 3000
 
-CMD ["npm","start"]
+# Starts the client in development mode
+CMD ["yarn","start"]
