@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+client/src/compiled/
+.env
+
+# dist folder
+dist
+build
