@@ -1,0 +1,21 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+
+  div {
+    flex: 1;
+    border-radius: 4px;
+    padding: 16px;
+    background-color: rgba(128, 203, 196, 0.16);
+
+    span {
+      margin-left: -16px;
+      margin-top: 16px;
+    }
+
+    ul {
+      text-align: left;
+    }
+  }
+}

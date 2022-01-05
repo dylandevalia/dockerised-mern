@@ -1,0 +1,17 @@
+.button {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 4px;
+  background-color: #009688;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #00796b;
+    cursor: pointer;
+  }
+}
