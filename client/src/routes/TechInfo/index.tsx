@@ -12,7 +12,7 @@ export default function TechInfo() {
           <li>cors</li>
           <li>dotenv</li>
           <li>express</li>
-          <li>morgan (mongodb)</li>
+          <li>morgan</li>
         </ul>
         <ul>
           <span>Dev Dependencies</span>
