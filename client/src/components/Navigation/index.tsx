@@ -8,6 +8,7 @@ export default function Navigation() {
       <Link to="/">HOME</Link>
       <Link to="/tech">TECH</Link>
       <Link to="/store">STORE</Link>
+      <Link to="/database">DATABASE</Link>
     </div>
   );
 }

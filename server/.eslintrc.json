@@ -11,6 +11,7 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -34,11 +35,13 @@
     "prettier/prettier": "error"
   },
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      },
-      "typescript": {}
+        "extensions": [".js", ".ts"]
+      }
     }
   }
 }

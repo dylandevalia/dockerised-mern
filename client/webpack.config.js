@@ -14,7 +14,7 @@ export default {
   mode: process.env.NODE_ENV || 'development',
   resolve: { extensions: ['.tsx', '.ts', '.js'] },
   devServer: {
-    port: 3000,
+    port: 3001,
     static: path.join(__dirname, 'src'),
     historyApiFallback: true,
   },

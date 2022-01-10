@@ -5,6 +5,7 @@ import Home from './Home';
 import TechInfo from './TechInfo';
 import StoreDemo from './StoreDemo';
 import Welcome from './Welcome';
+import DatabaseDemo from './DatabaseDemo';
 
 export default function Router() {
   return (
@@ -13,6 +14,7 @@ export default function Router() {
         <Route index element={<Welcome />} />
         <Route path="tech" element={<TechInfo />} />
         <Route path="store" element={<StoreDemo />} />
+        <Route path="database" element={<DatabaseDemo />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

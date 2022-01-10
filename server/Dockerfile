@@ -19,7 +19,7 @@ RUN yarn
 COPY . .
 
 # Expose port
-EXPOSE 8080
+EXPOSE 3001
 
 # Start the server in development mode
 CMD ["yarn","start:dev"]

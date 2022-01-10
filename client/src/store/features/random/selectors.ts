@@ -1,5 +1,5 @@
 import { RootState } from '../..';
-import { RANDOM_NAMESPACE, RandomState } from './initialState';
+import { RANDOM_NAMESPACE, type RandomState } from './initialState';
 
 const getLocalState = (state: RootState) =>
   state[RANDOM_NAMESPACE] as RandomState;

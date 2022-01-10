@@ -1,5 +1,5 @@
 import { RootState } from '../..';
-import { CounterState, COUNTER_NAMESPACE } from './initialState';
+import { type CounterState, COUNTER_NAMESPACE } from './initialState';
 
 const getLocalState = (state: RootState) =>
   state[COUNTER_NAMESPACE] as CounterState;

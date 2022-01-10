@@ -55,14 +55,14 @@ RUN mkdir -p /usr/src/app/server
 WORKDIR /usr/src/app/server/
 
 # Copy packages
-COPY server/package.json ./
-COPY server/yarn.lock ./
+COPY server/package.json .
+COPY server/yarn.lock .
 
 # Install dependencies
 RUN yarn
 
 # Copy local files
-COPY server/ ./
+COPY server/ .
 
 # Build server production files
 RUN yarn build

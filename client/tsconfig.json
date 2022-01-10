@@ -12,6 +12,7 @@
     "noEmit": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
+    "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

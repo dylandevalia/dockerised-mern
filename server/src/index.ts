@@ -4,9 +4,11 @@ import express from 'express';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import morgan from 'morgan';
+import routes from './routes';
+import './mongodb-connection';
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -19,13 +21,7 @@ const CLIENT_BUILD_PATH = path.join(__dirname, '../../client/build');
 if (process.env.NODE_ENV === 'production')
   app.use(express.static(CLIENT_BUILD_PATH));
 
-app.get('/api/rnd', (req, res) => {
-  const rnd = Math.ceil(Math.random() * 10);
-  res.status(200).send({
-    http_status: 200,
-    data: rnd,
-  });
-});
+app.use('/api', routes);
 
 app.get('*', (req, res) => {
   if (process.env.NODE_ENV === 'production') {
