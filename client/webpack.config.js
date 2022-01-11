@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import nodeExternals from 'webpack-node-externals';
 
 const __dirname = dirname(fileURLToPath(import.meta.url)); // eslint-disable-line no-underscore-dangle
 
@@ -18,6 +19,7 @@ export default {
     static: path.join(__dirname, 'src'),
     historyApiFallback: true,
   },
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
