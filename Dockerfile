@@ -72,8 +72,8 @@ RUN yarn --production
 RUN yarn cache clean
 
 # Expose ports
-ENV PORT 8080
-EXPOSE 8080
+ENV PORT 3000
+EXPOSE 3000
 
 # Start server in production
-CMD ["yarn", "start:prod"]
+CMD ["yarn", "start"]
