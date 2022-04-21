@@ -6,7 +6,7 @@ Branches are used for additions or variations on what tools are being used
 
 ## Background
 
-I initially started to help me get familiar with some new technologies and as a foundation I could use to for other projects. There are other solutions in this space which produce similar results but after trying a few out I found I'm not particularly comfortable downloading boilerplate I'm not familiar with and simply expecting it to work
+I initially started to help me get familiar with some new technologies and as a foundation I could use for other projects. There are other solutions in this space which produce similar results but after trying a few out I found I'm not particularly comfortable downloading boilerplate I'm not familiar with and simply expecting it to work
 
 My main gripe is that nothing I tried was exactly what I wanted (e.g. didn't support Typescript, wasn't dockerised etc.), which was expected, but it was then a nightmare to try and extend them to my spec since I didn't know how they worked
 
@@ -76,6 +76,6 @@ docker-compose -f docker-compose.prod.yml up --build --remove-orphans
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
 
-## License
+## Licence
 
 [MIT](https://choosealicense.com/licenses/mit/)
