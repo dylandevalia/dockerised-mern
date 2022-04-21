@@ -48,7 +48,7 @@ RUN mkdir -p /app/
 WORKDIR /app/
 
 # Copy client build files
-COPY --from=client /usr/app/client/build/ ./client/build/
+COPY --from=client /app/client/build/ ./client/build/
 
 # Change working directory (to keep same relative paths between client/server)
 RUN mkdir -p /app/server/
