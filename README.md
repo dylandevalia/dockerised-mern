@@ -50,7 +50,7 @@ rm -rf .git
 git init
 ```
 
-This will only create a local repo, o connect it to your own GitHub project follow [these docs](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github)
+This will only create a local repo, to connect it to your own GitHub project follow [these docs](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github)
 
 3. Name your project. There's a few places in the code which can be batch renamed - find instances of `myapp` and replace it with your project name
 
