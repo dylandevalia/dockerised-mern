@@ -1,3 +1,8 @@
+:root {
+  --accent: 128 203 196;
+  --text: 238 238 238;
+}
+
 body {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
@@ -7,14 +12,14 @@ body {
   text-align: center;
 
   background-color: #212121;
-  color: #eee;
+  color: RGB(var(--text));
 
   a {
-    color: #eee;
+    color: RGB(var(--text));
   }
 
   em {
-    color: #80cbc4;
+    color: RGB(var(--accent));
     font-style: normal;
   }
 }

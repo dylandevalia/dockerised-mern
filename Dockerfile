@@ -9,8 +9,8 @@
 FROM node:17.3.0-alpine3.12 as client
 
 # Client working directory
-RUN mkdir -p /usr/app/client/
-WORKDIR /usr/app/client/
+RUN mkdir -p /app/client/
+WORKDIR /app/client/
 
 # Copy packages
 COPY client/package.json .
@@ -44,15 +44,15 @@ RUN yarn build
 FROM node:17.3.0-alpine3.12
 
 # Server working directory 
-RUN mkdir -p /usr/src/app/
-WORKDIR /usr/src/app/
+RUN mkdir -p /app/
+WORKDIR /app/
 
 # Copy client build files
 COPY --from=client /usr/app/client/build/ ./client/build/
 
 # Change working directory (to keep same relative paths between client/server)
-RUN mkdir -p /usr/src/app/server
-WORKDIR /usr/src/app/server/
+RUN mkdir -p /app/server/
+WORKDIR /app/server/
 
 # Copy packages
 COPY server/package.json .

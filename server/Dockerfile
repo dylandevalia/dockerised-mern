@@ -5,8 +5,8 @@
 FROM node:17.3.0-alpine3.12
 
 # Create working directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /app/server/
+WORKDIR /app/server/
 
 # Copy packages
 COPY package.json .

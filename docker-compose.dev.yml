@@ -8,8 +8,8 @@ services:
     container_name: myapp-server # Rename me
     command: yarn start:dev
     volumes:
-      - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./server/:/app/server
+      - /app/server/node_modules
     ports:
       - "3000:3000"
     depends_on:
@@ -39,8 +39,8 @@ services:
     container_name: myapp-client # Rename me
     command: yarn start
     volumes:
-      - ./client/:/usr/app
-      - /usr/app/node_modules
+      - ./client/:/app/client
+      - /app/client/node_modules
     depends_on:
       - server
     ports:
