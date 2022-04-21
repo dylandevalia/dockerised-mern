@@ -10,7 +10,7 @@ export default function Welcome() {
       </p>
       <p>
         The codebase is built in <em>typescript</em> for both the server and
-        client, for faster development and continutity between codebases, and
+        client, for faster development and continuity between codebases, and
         complied using <em>webpack</em> and <em>babel</em>
       </p>
       <p>

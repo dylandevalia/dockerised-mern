@@ -6,6 +6,7 @@ import TechInfo from './TechInfo';
 import StoreDemo from './StoreDemo';
 import Welcome from './Welcome';
 import DatabaseDemo from './DatabaseDemo';
+import SocketIODemo from './SocketIODemo';
 
 export default function Router() {
   return (
@@ -15,6 +16,7 @@ export default function Router() {
         <Route path="tech" element={<TechInfo />} />
         <Route path="store" element={<StoreDemo />} />
         <Route path="database" element={<DatabaseDemo />} />
+        <Route path="sockets" element={<SocketIODemo />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

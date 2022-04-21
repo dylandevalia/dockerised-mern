@@ -1,11 +1,20 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { createServer } from 'http';
 import morgan from 'morgan';
+import path, { dirname } from 'path';
+import { Server } from 'socket.io';
+import { fileURLToPath } from 'url';
 import routes from './routes';
 import './mongodb-connection';
+
+import {
+  ServerToClientEvents,
+  ClientToServerEvents,
+  InterServerEvents,
+  SocketData,
+} from './types/socket';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,7 +40,31 @@ app.get('*', (req, res) => {
   }
 });
 
-app.listen(PORT, () =>
+const server = createServer(app);
+const io = new Server<
+  ClientToServerEvents,
+  ServerToClientEvents,
+  InterServerEvents,
+  SocketData
+>(server, {
+  path: '/api/socket',
+});
+
+const messages: string[] = [];
+io.on('connection', (socket) => {
+  console.log('a user connected', socket.id);
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected', socket.id);
+  });
+
+  socket.on('sendMessage', (message) => {
+    if (message) messages.push(message);
+    io.emit('messages', messages);
+  });
+});
+
+server.listen(PORT, () =>
   console.log(`env: ${process.env.NODE_ENV}\nServer running on port: ${PORT}`)
 );
 
