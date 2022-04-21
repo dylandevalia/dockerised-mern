@@ -17,9 +17,44 @@ The two main ways I've tried to make this project different:
 
 ## Usage
 
-After downloading the project, one of the first things to do is name your project. There's a few places in the code which can be batch renamed. Find instances of `myapp` and replace it with your project name
+Before starting, you will need setup [Docker](https://www.docker.com/get-started/) and [yarn](https://yarnpkg.com/getting-started)
 
-The code can be run in two ways, for development and for production. The following assume you are in the main directory (where this `README` is located)
+1. Download the project
+
+```bash
+# Clone the repo
+git clone https://github.com/dylandevalia/dockerised-mern.git
+
+# Optional: you can rename the folder from the default repo title
+mv dockerised-mern myapp
+
+# Navigate into the folder
+cd myapp
+```
+
+_Optional_: You can switch branch here if there is another stack variation that has been created that you want to use
+
+```bash
+# Change <branch-name> to the branch you want to use
+# e.g. `git checkout socket.io`
+git checkout <branch-name>
+```
+
+2. Be your own git
+
+```bash
+# Removes the existing git directory which points to this repo
+rm -rf .git
+
+# Initialise a new local git repo
+git init
+```
+
+This will only create a local repo, o connect it to your own GitHub project follow [these docs](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github)
+
+3. Name your project. There's a few places in the code which can be batch renamed - find instances of `myapp` and replace it with your project name
+
+4. The code can be run in two ways, for development and for production
 
 ### Development
 
