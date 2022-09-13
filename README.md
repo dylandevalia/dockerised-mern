@@ -15,7 +15,7 @@ The two main ways I've tried to make this project different:
 - Lots of comments - This was build to learn some new things and I want anyone that downloads this repo to be able to look around and be able to understand what is happening and why
 - Keep it simple - It may not looks like it from first glance but I have tried incredibly to keep the code and packages to a minimum as to not overwhelm the project
 
-## Usage
+## Setup
 
 Before starting, you will need setup [Docker](https://www.docker.com/get-started/) and [yarn](https://yarnpkg.com/getting-started)
 
@@ -54,24 +54,40 @@ This will only create a local repo, to connect it to your own GitHub project fol
 
 3. Create a `.env` file. In order to connect to MongoDB, it requires a some information like where it is located which is stored in the server's `.env` file. If you navigate to the `server/` directory there's an `.env.example` file which can simply be renamed to `.env` or you can create your own if you know what you're doing
 
-4. Name your project. There's a few places in the code which can be batch renamed - find instances of `myapp` and replace it with your project name
+```bash
+# Copies the example file
+cp server/.env.example server/.env
+```
 
-5. The code can be run in two ways, for development and for production
+4. Name your project. There's a few places in the code which can be batch renamed - find instances of `myapp` and replace it with your project name. (Note: if using VSCode, `server/.env` might not get picked up in the find and replace)
+
+5. Finally, commit time
+
+```bash
+# Stages all files
+git add .
+# Makes the initial commit with the message "feat: initial commit"
+git commit -m "feat: initial commit"
+```
+
+## Usage
+
+The code can be run in two ways, for development and for production
+
+### Production
+
+Builds the frontend as static files which is then served by the backend. Runs on `localhost:3000`
+
+```bash
+yarn start
+```
 
 ### Development
 
 Enables hot reloading of both frontend and backend. Backend runs on `localhost:3000` and the frontend `localhost:3001` as separate containers
 
 ```bash
-docker-compose -f docker-compose.dev.yml up --build --remove-orphans
-```
-
-### Production
-
-Builds the frontend which is served by the backend. Runs on `localhost:3000`
-
-```bash
-docker-compose -f docker-compose.prod.yml up --build --remove-orphans
+yarn start:dev
 ```
 
 ## Contributing
