@@ -52,16 +52,22 @@ git init
 
 This will only create a local repo, to connect it to your own GitHub project follow [these docs](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github)
 
-3. Create a `.env` file. In order to connect to MongoDB, it requires a some information like where it is located which is stored in the server's `.env` file. If you navigate to the `server/` directory there's an `.env.example` file which can simply be renamed to `.env` or you can create your own if you know what you're doing
+3. Name your project. There's a few places in the code which can be batch renamed - find instances of `myapp` and replace it with your project name
+
+4. Create a `.env` file. In order to connect to MongoDB, it requires a some information like where it is located which is stored in the server's `.env` file. If you navigate to the `server/` directory there's an `.env.example` file which can simply be renamed to `.env` or you can create your own if you know what you're doing
 
 ```bash
 # Copies the example file
 cp server/.env.example server/.env
 ```
 
-4. Name your project. There's a few places in the code which can be batch renamed - find instances of `myapp` and replace it with your project name. (Note: if using VSCode, `server/.env` might not get picked up in the find and replace)
+5. Install dependencies locally for development
 
-5. Finally, commit time
+```bash
+yarn local-install
+```
+
+6. Finally, commit time
 
 ```bash
 # Stages all files
@@ -79,7 +85,7 @@ The code can be run in two ways, for development and for production
 Builds the frontend as static files which is then served by the backend. Runs on `localhost:3000`
 
 ```bash
-yarn start
+yarn start-prod
 ```
 
 ### Development
@@ -87,7 +93,7 @@ yarn start
 Enables hot reloading of both frontend and backend. Backend runs on `localhost:3000` and the frontend `localhost:3001` as separate containers
 
 ```bash
-yarn start:dev
+yarn start-dev
 ```
 
 ## Contributing

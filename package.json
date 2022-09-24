@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "start": "docker compose -f docker-compose.prod.yml up --build --remove-orphans",
-    "start:dev": "docker compose -f docker-compose.dev.yml up --build --remove-orphans"
+    "local-install": "cd server; yarn; cd ../client; yarn; cd ..; yarn",
+    "start-prod": "docker compose -f docker-compose.prod.yml up --build --remove-orphans",
+    "start-dev": "docker compose -f docker-compose.dev.yml up --build --remove-orphans"
   },
   "devDependencies": {
     "cz-conventional-changelog": "3.3.0"
